@@ -1,3 +1,9 @@
+#include<iostream>
+#incude<vector>
+#include<unordered_map>
+#include<string>
+using namespace std;
+
 class Solution {
 
      unordered_map<string, vector<string>> memo;
