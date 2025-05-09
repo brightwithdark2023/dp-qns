@@ -1,4 +1,4 @@
- #  Kadane's Algorithm
+ //  Kadane's Algorithm
 //Space Optimization
 class Solution {
 public:
