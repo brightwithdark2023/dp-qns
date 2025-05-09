@@ -31,4 +31,21 @@ public:
 };
 
 //Memoisation
+class Solution{
+   int f(int i, vector<int>&nums,  vector<int>&dp, int&maxsum){
+      if(i>= nums.size()) return 0;
+      if(dp[i] != INT_MIN) return dp[i];
+              dp[i]  =  max(nums[i], nums[i]+f(i+1,nums, dp, maxsum));
+              maxsum = max(maxsum, dp[i]);
+      return dp[i];
+   }
+public:
+    int maxSubArray(vector<int>&nums){
+       int n = nums.size();
+       vector<int>dp(n,INT_MIN);
+        int maxsum = nums[0];
+         f(0,nums,dp,maxsum);
+       return maxsum;
+    }
+};
 
