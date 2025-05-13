@@ -17,3 +17,29 @@
  }
 
 //Tabulation
+ bool ff(vector<int>&nums){
+   int n = nums.size();
+   vector<int>dp(n,false);
+   dp[n-1] = true;
+   for(int i = n-2; i>=0; --i){
+     int furthestjump = min(n-1 , i+ nums[i]);
+     for(int j = i+1; j<=furthestjump; ++j){
+           if(dp[j]){
+             dp[i] = true;
+             break;
+           }
+     }
+   }
+   return dp[0];
+ }
+
+//Space Optimisation
+bool ff(vector<int>&nums){
+  int n = nums.size();
+  int reachable = 0; 
+  for(int i = 0; i<n; ++i){
+    if(i>reachable) return false;
+    reachable = max(reachable, i+nums[i]);
+  }
+  return true;
+}
